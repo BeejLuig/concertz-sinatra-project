@@ -1,4 +1,9 @@
-<% User.all.each do |user| %>
-  <p><%= user.username + " - " + user.artists[0].name %></p>
-  <p><%= user.artists[0].concerts[0].location %></p>
+<h1>Concertz</h1>
+
+<% Concert.all.sort_by {|x| x.concert_date }.each do |concert| %>
+  <p><%= "#{concert.artist.name} - #{concert.location} - #{concert.concert_date} - #{concert.ticket_price}"%></p>
 <% end %>
+
+<p><a href="/artists"></a></p>
+<p><a href="/login"></a></p>
+<p><a href="/signup"></a></p>
