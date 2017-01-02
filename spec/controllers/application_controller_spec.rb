@@ -21,7 +21,7 @@ describe "Signup Page" do
       :email => "skittles@aol.com",
       :password => "rainbows"
     }
-    post '/users', params
+    post '/signup', params
     expect(last_response.location).to include("/users/1")
   end
 
@@ -31,7 +31,7 @@ describe "Signup Page" do
       :email => "skittles@aol.com",
       :password => "rainbows"
     }
-    post '/users', params
+    post '/signup', params
     expect(last_response.location).to include('/signup')
   end
 
@@ -41,7 +41,7 @@ describe "Signup Page" do
       :email => "",
       :password => "rainbows"
     }
-    post '/users', params
+    post '/signup', params
     expect(last_response.location).to include('/signup')
   end
 
@@ -51,7 +51,7 @@ describe "Signup Page" do
       :email => "skittles@aol.com",
       :password => ""
     }
-    post '/users', params
+    post '/signup', params
     expect(last_response.location).to include('/signup')
   end
 end

@@ -33,13 +33,13 @@ header li {
   text-align: center;
 }
 
-.concert-list, .artist-list, .signup-form, .user{
+.concert-list, .artist-list, .signup-form, .user, .login-form{
   text-align: center;
   top: 78px;
   position: relative;
 }
 
-.signup-form {
+.signup-form, .login-form {
   margin: auto;
   max-width: 500px;
 }
