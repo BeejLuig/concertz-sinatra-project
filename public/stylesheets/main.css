@@ -19,9 +19,11 @@ header h1 {
 }
 
 header ul {
-  margin: none;
+  height: 100%;
+  margin: auto;
   display: inline;
   position: absolute;
+  top: 30px;
   right: 25px;
 }
 
@@ -31,13 +33,18 @@ header li {
   text-align: center;
 }
 
-.concert-list, .artist-list, .signup-form{
+.concert-list, .artist-list, .signup-form, .user{
   text-align: center;
   top: 78px;
   position: relative;
 }
 
 .signup-form {
+  margin: auto;
   max-width: 500px;
-  margin: 0 auto;
+}
+
+
+input {
+
 }

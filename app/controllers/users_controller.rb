@@ -7,6 +7,11 @@ class UsersController < ApplicationController
     erb :'/users/login_user'
   end
 
+  post '/users' do
+    @user = User.create(username: params[:username], email: params[:email], password: params[:password])
+    redirect to "/users/#{@user.id}"
+  end
+
   get '/users/:id' do
     @user = User.find_by(id: params[:id])
     erb :'/users/show_user'
