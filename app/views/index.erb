@@ -1,5 +1,5 @@
 <div class="concert-list">
   <% Concert.all.sort_by {|x| x.concert_date }.each do |concert| %>
-    <p><%= "#{concert.artist.name} - #{concert.location} - #{concert.concert_date.strftime("%m/%d/%Y")} - $#{sprintf("%1.2f", concert.ticket_price)}"%></p>
+    <p><%= "#{concert.artist.name} - #{concert.location} - #{concert.concert_date.strftime("%m/%d/%Y")} - "%><a href="/concerts/<%=concert.id%>">See ticket price</a></p>
   <% end %>
 </div>
