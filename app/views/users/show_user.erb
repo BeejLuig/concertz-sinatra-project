@@ -1,0 +1,8 @@
+<h1>Your Console</h1>
+<div>
+  <% @user.artists.each do |artist| %>
+    <p><%= artist.name %> - <a href="/artists/<%= artist.slug %>">View</a> - <a href="/artists/<%= artist.slug %>/edit">Edit</a></p>
+  <% end %>
+</div>
+
+<p><a href="/users/<%=@user.id%>/edit">Edit your account</a></p>
