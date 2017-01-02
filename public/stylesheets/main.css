@@ -1,31 +1,38 @@
 html, body {
   width: 100%;
-  position: relative;
+  height: auto;
 }
 
 header {
   width: 100%;
   text-align: center;
   position: fixed;
+  padding: 20px 0;
+  height: auto;
+  top: 0;
   border-bottom: 1px solid gray;
 }
 
 header h1 {
   display: inline;
+  margin-bottom: 20px;
 }
 
 header ul {
   margin: none;
   display: inline;
-  text-align: right;
+  position: absolute;
+  right: 25px;
 }
 
 header li {
   list-style: none;
   display: inline;
+  text-align: center;
 }
 
 .concert-list {
-  top: 50px;  
+  text-align: center;
+  top: 78px;
   position: relative;
 }
