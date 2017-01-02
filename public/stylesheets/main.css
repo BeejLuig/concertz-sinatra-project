@@ -35,7 +35,7 @@ header li {
 
 .concert-list, .artist-list, .signup-form, .user, .login-form{
   text-align: center;
-  top: 78px;
+  top: 85px;
   position: relative;
 }
 
@@ -44,7 +44,14 @@ header li {
   max-width: 500px;
 }
 
+#brand {
+  color: black;
+}
 
-input {
+#brand:hover {
+  text-decoration: none;
+}
 
+.concert-info {
+  font-size: 1.5em;
 }

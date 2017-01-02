@@ -44,4 +44,13 @@ class UsersController < ApplicationController
     @user = User.find_by(id: params[:id])
     erb :'/users/edit_user'
   end
+
+  get '/logout' do
+   if logged_in?
+     session.clear
+     redirect to '/'
+   else
+     redirect to '/'
+   end
+ end
 end
