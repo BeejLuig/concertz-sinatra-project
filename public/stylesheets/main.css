@@ -1,0 +1,31 @@
+html, body {
+  width: 100%;
+  position: relative;
+}
+
+header {
+  width: 100%;
+  text-align: center;
+  position: fixed;
+  border-bottom: 1px solid gray;
+}
+
+header h1 {
+  display: inline;
+}
+
+header ul {
+  margin: none;
+  display: inline;
+  text-align: right;
+}
+
+header li {
+  list-style: none;
+  display: inline;
+}
+
+.concert-list {
+  top: 50px;  
+  position: relative;
+}

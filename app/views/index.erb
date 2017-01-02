@@ -1,9 +1,5 @@
-<h1>Concertz</h1>
-
-<% Concert.all.sort_by {|x| x.concert_date }.each do |concert| %>
-  <p><%= "#{concert.artist.name} - #{concert.location} - #{concert.concert_date} - #{concert.ticket_price}"%></p>
-<% end %>
-
-<p><a href="/artists">Artists</a></p>
-<p><a href="/login">Login</a></p>
-<p><a href="/signup">Sign up</a></p>
+<div class="concert-list">
+  <% Concert.all.sort_by {|x| x.concert_date }.each do |concert| %>
+    <p><%= "#{concert.artist.name} - #{concert.location} - #{concert.concert_date} - #{concert.ticket_price}"%></p>
+  <% end %>
+</div>
