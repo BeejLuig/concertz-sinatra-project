@@ -31,8 +31,13 @@ header li {
   text-align: center;
 }
 
-.concert-list, .artist-list{
+.concert-list, .artist-list, .signup-form{
   text-align: center;
   top: 78px;
   position: relative;
+}
+
+.signup-form {
+  max-width: 500px;
+  margin: 0 auto;
 }
