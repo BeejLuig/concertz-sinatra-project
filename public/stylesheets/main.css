@@ -31,7 +31,7 @@ header li {
   text-align: center;
 }
 
-.concert-list {
+.concert-list, .artist-list{
   text-align: center;
   top: 78px;
   position: relative;
