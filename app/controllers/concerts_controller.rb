@@ -1,7 +1,11 @@
 class ConcertsController < ApplicationController
 
   get '/concerts/new' do
-
+    if logged_in?
+      erb :'/concerts/create_concert'
+    else
+      redirect to '/'
+    end
   end
 
   get '/concerts/:id' do

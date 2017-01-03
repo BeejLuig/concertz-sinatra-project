@@ -38,7 +38,7 @@ header li {
   text-align: center;
 }
 
-.concert-list, .artist-list, .form, .artist  {
+.concert-list, .artist-list, .form, .artist, .user  {
   text-align: center;
   top: 85px;
   position: relative;
