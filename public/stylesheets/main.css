@@ -13,9 +13,14 @@ header {
   border-bottom: 1px solid gray;
 }
 
+.page-title {
+  margin-left: 25px;
+}
+
 header h1 {
   display: inline;
   margin-bottom: 20px;
+  margin: auto;
 }
 
 header ul {
@@ -33,7 +38,7 @@ header li {
   text-align: center;
 }
 
-.concert-list, .artist-list, .signup-form, .user, .login-form{
+.concert-list, .artist-list, .signup-form, .user, .login-form, .artist  {
   text-align: center;
   top: 85px;
   position: relative;
@@ -52,6 +57,14 @@ header li {
   text-decoration: none;
 }
 
-.concert-info {
+.concert-info, .artist-list p, .artist p {
   font-size: 1.5em;
+}
+
+.bio {
+  padding-left: 50px;
+}
+
+.row {
+  max-width: 100%;
 }

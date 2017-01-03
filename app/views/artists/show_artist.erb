@@ -1,2 +1,28 @@
-<h1><%= @artist.name %></h1>
-<p><a href="/artists/<%= @artist.slug %>/edit">Edit</a></p>
+<div class="row artist">
+  <div class="col-md-3 col-md-offset-9">
+    <h1 class="page-title"><%= @artist.name %></h1>
+  </div>
+  <div class="col-md-6 bio">
+    <h2>Bio</h2>
+    <p><%= @artist.bio %></p>
+  </div>
+  <div class="col-md-6">
+    <h2>Upcoming Concerts</h2>
+      <% @artist.concerts.sort_by {|x| x.concert_date }.each do |concert| %>
+        <% if concert.concert_date >= Time.now %>
+          <p class="concert-info"><%= "#{concert.location} - #{concert.concert_date.strftime("%m/%d/%Y")} - "%><a href="/concerts/<%=concert.id%>">See ticket price</a></p>
+        <% end %>
+      <% end %>
+    <h2>Past Concerts</h2>
+    <% @artist.concerts.sort_by {|x| x.concert_date }.each do |concert| %>
+      <% if concert.concert_date < Time.now %>
+        <p class="concert-info"><%= "#{concert.location} - #{concert.concert_date.strftime("%m/%d/%Y")} - "%><a href="/concerts/<%=concert.id%>">See ticket price</a></p>
+      <% end %>
+    <% end %>
+  </div>
+  <%if logged_in? && current_user.artists.include(@artist)%>
+    <div class="col-md-12">
+      <p><a href="/artists/<%= @artist.slug %>/edit">Edit Artist</a></p>
+    </div>
+  <%end%>
+</div>

@@ -4,6 +4,7 @@ class CreateConcerts < ActiveRecord::Migration[5.0]
       t.belongs_to :artist
       t.datetime :concert_date
       t.string :location
+      t.string :description
       t.float :ticket_price
     end
   end

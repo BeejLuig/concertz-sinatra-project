@@ -14,6 +14,7 @@ ActiveRecord::Schema.define(version: 20161231065958) do
 
   create_table "artists", force: :cascade do |t|
     t.string  "name"
+    t.string  "bio"
     t.integer "user_id"
     t.index ["user_id"], name: "index_artists_on_user_id"
   end
@@ -22,6 +23,7 @@ ActiveRecord::Schema.define(version: 20161231065958) do
     t.integer  "artist_id"
     t.datetime "concert_date"
     t.string   "location"
+    t.string   "description"
     t.float    "ticket_price"
     t.index ["artist_id"], name: "index_concerts_on_artist_id"
   end
