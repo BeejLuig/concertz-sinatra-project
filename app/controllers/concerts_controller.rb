@@ -14,7 +14,8 @@ class ConcertsController < ApplicationController
                               concert_date: Date.parse(params[:concert_date]),
                               description: params[:description],
                               ticket_price: params[:ticket_price])
-    if @concert.valid?
+    binding.pry
+    if @concert.valid? && @concert.artist.valid?
       redirect to "/concerts/#{@concert.id}"
     else
       redirect to '/concerts/new'

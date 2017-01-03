@@ -1,3 +1,11 @@
-<h1>Concert Detail</h1>
-<p>Ticket Price - <%= "$#{sprintf("%1.2f", @concert.ticket_price)}" %></p>
-<p><a href="/concerts/<%= @concert.id %>/edit">Edit</a></p>
+<div class="concert">
+  <h1>Concert Detail</h1>
+  <p><%= @concert.concert_date.strftime("%m/%d/%Y") %></p>
+  <p><%= @concert.artist.name %></p>
+  <p><%= @concert.location %></p>
+  <p>Ticket Price: <%= "$#{sprintf("%1.2f", @concert.ticket_price)}" %></p>
+  <p>Description: <%= @concert.description %></p>
+  <% if logged_in? && current_user.concerts.include?(@concert)%>
+    <p><a href="/concerts/<%= @concert.id %>/edit">Edit</a></p>
+  <% end %>
+</div>
