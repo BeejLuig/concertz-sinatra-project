@@ -11,7 +11,7 @@
     <p><a href="/artists/new">Add artist</a></p>
   <h2>Your Concerts</h2>
   <% @user.concerts.each do |concert| %>
-    <p><%= concert.artist.name %> - <%= concert.location %> - <%= concert.concert_date.strftime("%m/%d/%Y")%> - <a href="/concerts/<%= concert.id %>">View</a> / <a href="/concerts/<%= concert.id %>/edit">Edit</a></p>
+    <p><%= concert.concert_date.strftime("%m/%d/%Y")%> - <%= concert.artist.name %> - <%= concert.location %> - <a href="/concerts/<%= concert.id %>">View</a> / <a href="/concerts/<%= concert.id %>/edit">Edit</a></p>
   <% end %>
   <p><a href="/concerts/new">Add concert</a></p>
 </div>
