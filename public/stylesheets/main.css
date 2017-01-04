@@ -68,3 +68,7 @@ header li {
 .row {
   max-width: 100%;
 }
+
+textarea {
+  resize: none;
+}
