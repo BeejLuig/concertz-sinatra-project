@@ -46,7 +46,24 @@ class UsersController < ApplicationController
 
   get '/users/:id/edit' do
     @user = User.find_by(id: params[:id])
-    erb :'/users/edit_user'
+    if logged_in? && @user == current_user
+      erb :'/users/edit_user'
+    else
+      redirect to '/login'
+    end
+  end
+
+  patch '/users/:id' do
+    @user = User.find_by(id: params[:id])
+    @user.username = params[:username]
+    @user.email = params[:email]
+    @user.password = params[:password]
+    if logged_in? && @user == current_user && @user.valid?
+      @user.save
+      redirect to "/users/#{@user.id}"
+    else
+      redirect to '/login'
+    end
   end
 
   get '/logout' do
