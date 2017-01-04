@@ -1,8 +1,16 @@
-<div class="user">
+<div class="user form">
   <h1>Edit your account</h1>
-  <p>Username: <%=@user.username%></p>
-  <p>Email: <%=@user.email%></p>
-  <p>Password: <%=@user.password%></p>
-
+  <div>
+    <form action="/signup" method="post">
+      <div class="form-group">
+        <label>Username</label>
+        <input type="text" class="form-control" name="username" required value="<%=@user.username%>"><br>
+        <label>Email</label>
+        <input type="email" class="form-control" name="email" required value="<%=@user.email%>"><br>
+        <label>Password</label>
+        <input type="password" class="form-control" required name="password" value="<%=@user.password%>"><br>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
   <p><a href="/users/<%=@user.id%>">Back to your account</a></p>
 </div>
