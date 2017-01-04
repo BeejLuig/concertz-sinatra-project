@@ -1,9 +1,10 @@
 <div class="form">
   <h1>Edit concert</h1>
-  <form action="/concerts" method="post">
+  <form action="/concerts/<%=@concert.id%>" method="post">
+    <input type="hidden" name="_method" value="patch">
     <div class="form-group">
       <label>Artist</label><br>
-      <input class="form-control" list="artists" name="artist[name]" placeholder="<%=@concert.artist.name%>">
+      <input class="form-control" list="artists" name="artist[name]" value="<%=@concert.artist.name%>">
       <datalist id="artists">
         <%current_user.artists.each do |artist|%>
           <option value="<%=artist.name%>"><%=artist.name%></option>
