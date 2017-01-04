@@ -27,6 +27,22 @@ class ArtistsController < ApplicationController
 
   get '/artists/:slug/edit' do
     @artist = Artist.find_by_slug(params[:slug])
-    erb :'/artists/edit_artist'
+    if logged_in? && current_user.artists.include?(@artist)
+      erb :'/artists/edit_artist'
+    else
+      redirect to "/artists/#{@artist.slug}"
+    end
+  end
+
+  patch '/artists/:slug' do
+    @artist = Artist.find_by_slug(params[:slug])
+    @artist.name = params[:name]
+    @artist.bio = params[:bio]
+    if logged_in? && current_user.artists.include?(@artist) && @artist.valid?
+      @artist.save
+      redirect to "/artists/#{@artist.slug}"
+    else
+      redirect to "/artists/#{@artist.slug}"
+    end
   end
 end
