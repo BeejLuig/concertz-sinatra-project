@@ -49,4 +49,14 @@ class ConcertsController < ApplicationController
       redirect to "/concerts/#{@concert.id}"
     end
   end
+
+  delete '/concerts/:id' do
+    @concert = Concert.find_by_id(params[:id])
+    if logged_in? && current_user.concerts.include?(@concert)
+      @concert.delete
+      redirect to "/users/#{current_user.id}"
+    else
+      redirect to "/concerts/#{@concert.id}"
+    end
+  end
 end
