@@ -46,4 +46,17 @@ class ArtistsController < ApplicationController
       redirect to "/artists/#{@artist.slug}"
     end
   end
+
+  delete '/artists/:slug' do
+    @artist = Artist.find_by_slug(params[:slug])
+    if logged_in? && current_user.artists.include?(@artist)
+      @artist.concerts.each do |concert|
+        concert.delete
+      end
+      @artist.delete
+      redirect to "/users/#{current_user.id}"
+    else
+      redirect to "/artists/#{@artist.slug}"
+    end
+  end
 end

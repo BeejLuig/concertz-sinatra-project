@@ -10,4 +10,8 @@
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
+  <p><form action="/artists/<%=@artist.slug%>" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="Delete Artist">
+  </form></p>
 </div>

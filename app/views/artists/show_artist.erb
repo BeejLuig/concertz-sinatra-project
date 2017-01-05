@@ -24,6 +24,10 @@
     <div class="col-md-12">
       <p><a href="/artists/<%= @artist.slug %>/edit">Edit artist</a></p>
       <p><a href="/concerts/new">Add concert</a></p>
+      <p><form action="/artists/<%=@artist.slug%>" method="post">
+          <input type="hidden" name="_method" value="delete">
+          <input type="submit" value="Delete Artist">
+        </form></p>
     </div>
   <%end%>
 </div>
