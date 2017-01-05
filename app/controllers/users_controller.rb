@@ -16,7 +16,7 @@ class UsersController < ApplicationController
   end
 
   post '/login' do
-    @user = User.find_by(username: params[:username], password: params[:password])
+    @user = User.find_by(username: params[:username].strip, password: params[:password].strip)
     if !@user.nil?
      session[:user_id] = @user.id
      redirect to '/'
@@ -26,7 +26,7 @@ class UsersController < ApplicationController
   end
 
   post '/signup' do
-    @user = User.new(username: params[:username], email: params[:email], password: params[:password])
+    @user = User.new(username: params[:username].strip, email: params[:email].strip, password: params[:password].strip)
     if @user.save
       session[:user_id] = @user.id
       redirect to "/users/#{@user.id}"
@@ -55,9 +55,9 @@ class UsersController < ApplicationController
 
   patch '/users/:id' do
     @user = User.find_by_id(params[:id])
-    @user.username = params[:username]
-    @user.email = params[:email]
-    @user.password = params[:password]
+    @user.username = params[:username].strip
+    @user.email = params[:email].strip
+    @user.password = params[:password].strip
     if logged_in? && @user == current_user && @user.valid?
       @user.save
       redirect to "/users/#{@user.id}"
