@@ -5,7 +5,7 @@ class ArtistsController < ApplicationController
   end
 
   post '/artists' do
-    @artist = current_user.artists.new(name: params[:name], bio: params[:bio])
+    @artist = current_user.artists.new(name: params[:name].strip, bio: params[:bio])
     if @artist.save
       redirect to "/artists/#{@artist.slug}"
     else

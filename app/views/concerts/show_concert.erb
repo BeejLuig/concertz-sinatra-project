@@ -6,6 +6,7 @@
   <p><b>Ticket Price:</b> <%= "$#{sprintf("%1.2f", @concert.ticket_price)}" %></p>
   <p class="concert-description"><b>Description:</b> <%= @concert.description %></p>
   <% if logged_in? && current_user.concerts.include?(@concert)%>
+    <p><a href="/users/<%=current_user.id%>">Your account</a></p>
     <p><a href="/concerts/<%= @concert.id %>/edit">Edit</a></p>
     <p><form action="/concerts/<%=@concert.id%>" method="post">
       <input type="hidden" name="_method" value="delete">
