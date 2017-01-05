@@ -14,4 +14,8 @@
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>
   <p><a href="/users/<%=@user.id%>">Back to your account</a></p>
+  <p><form action="/users/<%=@user.id%>" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="Delete Account">
+  </form></p>
 </div>

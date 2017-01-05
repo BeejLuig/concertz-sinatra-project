@@ -74,4 +74,22 @@ class UsersController < ApplicationController
      redirect to '/'
    end
  end
+
+ delete '/users/:id' do
+    @user = User.find_by_id(params[:id])
+    if logged_in? && @user == current_user
+      @user.concerts.each do |concert|
+        concert.delete
+      end
+      @user.artists.each do |artist|
+        artist.delete
+      end
+      @user.delete
+      session.clear
+      redirect to '/'
+    else
+      redirect to '/login'
+    end
+ end
+
 end

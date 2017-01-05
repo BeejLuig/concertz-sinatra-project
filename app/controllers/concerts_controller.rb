@@ -9,12 +9,12 @@ class ConcertsController < ApplicationController
   end
 
   post '/concerts' do
-    @concert = Concert.create(artist: Artist.find_or_create_by(name: params[:artist][:name], user_id: current_user.id),
+    @concert = Concert.new(artist: Artist.find_or_create_by(name: params[:artist][:name], user_id: current_user.id),
                               location: params[:location],
                               concert_date: Date.parse(params[:concert_date]),
                               description: params[:description],
                               ticket_price: params[:ticket_price].to_f)
-    if @concert.valid? && @concert.artist.valid?
+    if @concert.save && @concert.artist.valid?
       redirect to "/concerts/#{@concert.id}"
     else
       redirect to '/concerts/new'

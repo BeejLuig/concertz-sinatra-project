@@ -3,7 +3,7 @@
   <form action="/concerts" method="post">
     <div class="form-group">
       <label>Artist</label><br>
-      <input class="form-control" list="artists" name="artist[name]" placeholder="<%=current_user.artists.first.name if current_user.artists.first%>">
+      <input class="form-control" list="artists" name="artist[name]" required placeholder="Artist Name">
       <datalist id="artists">
         <%current_user.artists.each do |artist|%>
           <option value="<%=artist.name%>"><%=artist.name%></option>
