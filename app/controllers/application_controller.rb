@@ -9,6 +9,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/' do
+    @concerts = Concert.all
     erb :index
   end
 

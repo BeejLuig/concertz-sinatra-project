@@ -17,7 +17,7 @@ class UsersController < ApplicationController
 
   post '/login' do
     @user = User.find_by(username: params[:username], password: params[:password])
-    if @user.valid?
+    if !@user.nil?
      session[:user_id] = @user.id
      redirect to '/'
     else
@@ -26,8 +26,8 @@ class UsersController < ApplicationController
   end
 
   post '/signup' do
-    @user = User.create(username: params[:username], email: params[:email], password: params[:password])
-    if @user.valid?
+    @user = User.new(username: params[:username], email: params[:email], password: params[:password])
+    if @user.save
       session[:user_id] = @user.id
       redirect to "/users/#{@user.id}"
     else
@@ -36,7 +36,7 @@ class UsersController < ApplicationController
   end
 
   get '/users/:id' do
-    @user = User.find_by(id: params[:id])
+    @user = User.find_by_id(params[:id])
     if logged_in? && @user == current_user
       erb :'/users/show_user'
     else
@@ -45,7 +45,7 @@ class UsersController < ApplicationController
   end
 
   get '/users/:id/edit' do
-    @user = User.find_by(id: params[:id])
+    @user = User.find_by_id(params[:id])
     if logged_in? && @user == current_user
       erb :'/users/edit_user'
     else
@@ -54,7 +54,7 @@ class UsersController < ApplicationController
   end
 
   patch '/users/:id' do
-    @user = User.find_by(id: params[:id])
+    @user = User.find_by_id(params[:id])
     @user.username = params[:username]
     @user.email = params[:email]
     @user.password = params[:password]

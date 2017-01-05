@@ -1,11 +1,12 @@
 class ArtistsController < ApplicationController
   get '/artists' do
+    @artists = Artist.all
     erb :'/artists/artists'
   end
 
   post '/artists' do
-    @artist = current_user.artists.create(name: params[:name], bio: params[:bio])
-    if @artist.valid?
+    @artist = current_user.artists.new(name: params[:name], bio: params[:bio])
+    if @artist.save
       redirect to "/artists/#{@artist.slug}"
     else
       redirect to '/artists/new'

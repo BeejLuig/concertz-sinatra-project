@@ -22,12 +22,12 @@ class ConcertsController < ApplicationController
   end
 
   get '/concerts/:id' do
-    @concert = Concert.find_by(id: params[:id])
+    @concert = Concert.find_by_id(params[:id])
     erb :'/concerts/show_concert'
   end
 
   get '/concerts/:id/edit' do
-    @concert = Concert.find_by(id: params[:id])
+    @concert = Concert.find_by_id(params[:id])
     if logged_in? && current_user.concerts.include?(@concert)
       erb :'/concerts/edit_concert'
     else
@@ -36,7 +36,7 @@ class ConcertsController < ApplicationController
   end
 
   patch '/concerts/:id' do
-    @concert = Concert.find_by(id: params[:id])
+    @concert = Concert.find_by_id(params[:id])
     @concert.artist = Artist.find_or_create_by(name: params[:artist][:name], user_id: current_user.id)
     @concert.location = params[:location]
     @concert.concert_date = Date.parse(params[:concert_date])
